@@ -29,3 +29,5 @@ Features:
 Work Summary
 ------------
 We have created a Prototype of the whole system including Web section and Mobile section. We have planned the SMS Section but not able to include it in the prototype due to SMS gateway was not available for Receiver section.
+
+#sanitationhackathonbd #ngowhere
