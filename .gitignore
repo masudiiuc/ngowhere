@@ -1,0 +1,23 @@
+# Bootstrap
+app/bootstrap*
+
+# Symfony directories
+composer.phar
+app/config/parameters.yml~
+vendor/*
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+web/img
+web/css/*
+web/js/*
+
+# Configuration files
+app/config/parameters.yml
+
+# IDE settings
+.idea
+
+# System files
+.DS_Store

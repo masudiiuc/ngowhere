@@ -1,0 +1,19 @@
+project_name_admin_homepage:
+    pattern:  /ngo
+    defaults: { _controller: ProjectBundleAdminBundle:Default:index }
+
+admin_auth_login:
+    pattern: /ngo/login
+    defaults: { _controller: ProjectBundleAdminBundle:Auth:login}
+
+admin_auth_signup:
+    pattern: /ngo/signup
+    defaults: { _controller: ProjectBundleAdminBundle:Auth:signup}
+
+admin_auth_local_gov:
+    pattern: /localgov/signup
+    defaults: { _controller: ProjectBundleAdminBundle:Auth:localGov}
+
+admin_auth_local_gov_dashboard:
+    pattern: /localgov
+    defaults: { _controller: ProjectBundleAdminBundle:Auth:localGovDashboard}

@@ -1,0 +1,44 @@
+parameters:
+
+  locale: en
+  secret: hoaZFnl72oACHT0lerTMsz6Y5bd7SR19
+
+  database_driver:   pdo_mysql
+  database_host:     localhost
+  database_port:     ~
+  database_name:     project_db
+  database_user:     root
+  database_password: ~
+
+  prod_database_driver:   pdo_mysql
+  prod_database_host:     localhost
+  prod_database_port:     ~
+  prod_database_name:     project_db_prod
+  prod_database_user:     root
+  prod_database_password: ~
+
+  sandbox_database_driver:   pdo_mysql
+  sandbox_database_host:     localhost
+  sandbox_database_port:     ~
+  sandbox_database_name:     project_db_sandbox
+  sandbox_database_user:     root
+  sandbox_database_password: ~
+
+  mailer_transport:  smtp
+  mailer_host:
+  mailer_user:
+  mailer_password:
+  mailer_port:
+
+  sms_host:
+  sms_port:
+  sms_username:
+  sms_password:
+  sms_message_type:
+  sms_del_report:
+
+
+  http_client:       HttpRequest
+  service_debug:     1
+  payza_debug:       0
+  admin_mode:        0

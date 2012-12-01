@@ -1,0 +1,284 @@
+{% extends 'ProjectBundleCoreBundle::layout_public.html.twig' %}
+
+{% block content %}
+    <style>
+        .marker-image {
+            width:100px;
+            height:100px;
+            border:1px solid #000;
+            margin-left:-51px;
+            margin-top:-51px;
+            pointer-events:all;
+            position:absolute;
+        }
+        #map {
+            clear: both;
+            float: left;
+            top: 200px;
+            width: 800px;
+            height: 800px;
+            left: 200px;
+            right: 200px;
+            padding: 0px;
+            overflow: hidden !important;
+            position: absolute;
+        }
+
+        #feed {
+            float: right;
+            margin-right: 77px;
+            margin-top: 47px;
+        }
+
+        .activity {
+            padding: 5px;
+            border-bottom: 1px dotted #a9a9a9;
+        }
+
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.dropdown-toggle').dropdown();
+
+            $('.dropdown input, .dropdown label').click(function(e) {
+                e.stopPropagation();
+            });
+
+            $('.lianchor').live('click', function(){
+                var anchorId = this.id;
+                var temp = anchorId.split('-');
+
+                var dropdownType = temp[0];
+                var dropdownId = temp[1];
+
+                switch (dropdownType) {
+                    case 'a' :  var route = '/search/district/'+dropdownId;
+                                var response = '';
+                                $.ajax({
+                                    url: route,
+                                    type: "GET",
+                                    success: function(data) {
+                                        $('#dist').append(data);
+                                        alert($('#dist').html());
+                                    }
+                                });
+                                $('#zila'+dropdownId).attr('style', 'display: list-item;  z-index: 900; margin-top: 54px; margin-left: 138px; position: absolute; z-index: 1000; float: left;min-width: 100px; list-style: none; border: 1px solid #ccc; border: 1px solid rgba(0, 0, 0, 0.2); *border-right-width: 2px; *border-bottom-width: 2px; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); -webkit-background-clip: padding-box; -moz-background-clip: padding; background-clip: padding-box;');
+
+                                $(".upazila").each(function(){
+                                    $(this).hide();
+                                });
+
+                                $(".union").each(function(){
+                                    $(this).hide();
+                                });
+                                break;
+
+                    case 'd' :  var route = '/search/upazila/'+dropdownId;
+                                var response = '';
+                                $.ajax({
+                                    url: route,
+                                    type: "GET",
+                                    success: function(data) {
+                                        alert(data);
+                                        $('#upaz').append(data);
+                                    }
+                                });
+
+                                $('#upazila'+dropdownId).attr('style', 'display: list-item;  z-index: 900; margin-top: 54px; margin-left: 260px; position: absolute; z-index: 1000; float: left;min-width: 100px; list-style: none; border: 1px solid #ccc; border: 1px solid rgba(0, 0, 0, 0.2); *border-right-width: 2px; *border-bottom-width: 2px; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); -webkit-background-clip: padding-box; -moz-background-clip: padding; background-clip: padding-box;');
+                                $(".zila").each(function(){
+                                    $(this).hide();
+                                });
+
+                                $(".union").each(function(){
+                                    $(this).hide();
+                                });
+                                break;
+
+                    case 'u' :  var route = '/search/union/'+dropdownId;
+                                var response = '';
+                                $.ajax({
+                                    url: route,
+                                    type: "GET",
+                                    success: function(data) {
+                                        alert(data);
+                                        $('#union').append(data);
+                                    }
+                                });
+
+                                $('#union'+dropdownId).attr('style', 'display: list-item;  z-index: 900; margin-top: 54px; margin-left: 382px; position: absolute; z-index: 1000; float: left;min-width: 100px; list-style: none; border: 1px solid #ccc; border: 1px solid rgba(0, 0, 0, 0.2); *border-right-width: 2px; *border-bottom-width: 2px; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); -webkit-background-clip: padding-box; -moz-background-clip: padding; background-clip: padding-box;');
+                                $(".zila").each(function(){
+                                    $(this).hide();
+                                });
+
+                                $(".upazila").each(function(){
+                                    $(this).hide();
+                                });
+                                break;
+                    case 'un' : $('#union'+dropdownId).hide();
+                                var url = '';
+                }
+            });
+
+            $('#advancedSearch').click(function() {
+                $('#primary').slideToggle('slow');
+                $('#advanced').slideToggle('slow');
+                $('#defaultText').slideToggle('slow');
+                $('#advancedText').slideToggle('slow');
+            });
+        });
+
+    </script>
+    <div style="width: 100%;"><a class="brand-logo" href="javascript:void(0);"></a></div>
+
+    <div class="ngoSearch" id="primary" style="margin-left: 201px;">
+        <ul class="nav">
+            <li class="dropdown selectLi" style="color: #000000 !important; z-index: 900;">
+                <a class="dropdown-toggle" href="javascript:void(0);" data-toggle="dropdown"><b>স্থানের নাম দিয়ে খুঁজুন</b><strong class="caret"></strong></a>
+                <div class="dropdown-menu" style="float: left; min-width: 100px !important; padding-bottom: 5px !important;">
+                    <p style="text-align: left; margin-left: 5px;"><b>বিভাগ নির্বাচন</b></p>
+                    <ul>
+                        <li style="clear: both;"><a class="lianchor" id="a-0" href="javascript:void(0);" >ঢাকা</a></li>
+                        <li style="clear: both;"><a class="lianchor" id="a-1" href="javascript:void(0);" >চট্টগ্রাম</a></li>
+                        <li style="clear: both;"><a class="lianchor" id="a-2" href="javascript:void(0);" >খুলনা</a></li>
+                        <li style="clear: both;"><a class="lianchor" id="a-3" href="javascript:void(0);" >বরিশাল</a></li>
+                        <li style="clear: both;"><a class="lianchor" id="a-4" href="javascript:void(0);" >রাজশাহী</a></li>
+                        <li style="clear: both;"><a class="lianchor" id="a-5" href="javascript:void(0);" >রংপুর</a></li>
+                        <li style="clear: both;"><a class="lianchor" id="a-6" href="javascript:void(0);" >সিলেট</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="dropdown zila" id="zila0" style="display: none;">
+                <div style="float: left; position: relative; min-width: 100px !important; padding-bottom: 5px !important; background-color: aliceblue;">
+                    <p style="text-align: left; margin-left: 5px;"><b>জেলা নির্বাচন</b></p>
+                    <ul id="dist">
+
+                    </ul>
+                </div>
+            </li>
+            <li class="dropdown upazila" id="upazila2" style="display: none;">
+                <div style="float: left; position: relative; min-width: 100px !important; padding-bottom: 5px !important; background-color: aliceblue;">
+                    <p style="text-align: left; margin-left: 5px;"><b>উপজেলা নির্বাচন</b></p>
+                    <ul id="upaz">
+
+                    </ul>
+                </div>
+            </li>
+            <li class="dropdown union" id="union0" style="display: none;">
+                <div style="float: left; position: relative; min-width: 100px !important; padding-bottom: 5px !important; background-color: aliceblue;">
+                    <p style="text-align: left; margin-left: 5px;"><b>উপজেলা নির্বাচন</b></p>
+                    <ul id="union">
+
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="ngoSearch" style="margin-left: 800px;"><a id="advancedSearch" href="javascript:void(0);"><span id="defaultText">বিস্তারিতভাবে খুঁজুন</span><span id="advancedText" style="display: none;">ডিফল্টভাবে খুঁজুন</span> </a></div>
+
+    <div class="ngoSearch" id="advanced" style="display: none;">
+        <input type="text" name="searchKeyWords" id="searchKeyWords" placeholder="এনজিও নাম, স্থানের নাম অথবা কার্যক্রম লিখে খুঁজুন" size="250" style="width: 700px;"/>
+        <input type="button" class="btn btn-primary" name="search" value="খুঁজুন" style="margin-bottom: 10px;">
+    </div>
+
+    <div id="map">
+        <h4 class="label label-success" style="width: auto;margin-left: -5px; padding: 5px 5px 5px 15px;"><b>এক নজরে সারা দেশ</b></h4>
+        <span id="wholeBd">
+            <iframe width='800' height='600' frameBorder='0' src='http://a.tiles.mapbox.com/v3/loosemonkies.map-raehzk2w.html#7/24.076559120295382/90.5377103058755'></iframe>
+        </span>
+
+        <span id="dhakaDiv" style="display: none;">
+
+        </span>
+
+        <span id="mymenDist" style="display: none;">
+
+        </span
+
+        <span id="mymSadarUp" style="display: none;">
+
+        </span>
+
+        <span id="aquaUnion" style="display: none;">
+
+        </span>
+    </div>
+
+    <div id="feed">
+        <h4 class="label label-success" style="width: 250px;margin-left: -5px;padding: 5px;"><b>সম্মিলিত কার্যক্রম</b></h4>
+        <div class="well">
+            <p class="activity"><a style="text-decoration: none;" href="javascript:void(0);">feed 1</a></p>
+            <p class="activity"><a style="text-decoration: none;" href="javascript:void(0);">feed 2</a></p>
+            <p class="activity"><a style="text-decoration: none;" href="javascript:void(0);">feed 3</a></p>
+            <p class="activity"><a style="text-decoration: none;" href="javascript:void(0);">feed 4</a></p>
+            <p class="activity"><a style="text-decoration: none;" href="javascript:void(0);">feed 5</a></p>
+            <p class="activity"><a style="text-decoration: none;" href="javascript:void(0);">feed 6</a></p>
+            <p class="activity"><a style="text-decoration: none;" href="javascript:void(0);">feed 7</a></p>
+            <p class="activity"><a style="text-decoration: none;" href="javascript:void(0);">feed 8</a></p>
+            <p class="activity"><a style="text-decoration: none;" href="javascript:void(0);">feed 9</a></p>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block closure %}
+    <script type="text/javascript">
+        // GeoJSON input features
+        // The image and url properties of the features will be used in
+        // the tooltips
+        /*var features = [{
+            "geometry": { "type": "Point", "coordinates": [-77.03, 38.90]},
+            "properties": {
+                "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/DCmontage4.jpg/250px-DCmontage4.jpg",
+                "url": "http://en.wikipedia.org/wiki/Washington,_D.C.",
+                "city": "Asha NGO"
+            }
+        }, {
+            "geometry": { "type": "Point", "coordinates": [-87.63, 41.88]},
+            "properties": {
+                "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Chicago_montage.jpg/300px-Chicago_montage.jpg",
+                "url": "http://en.wikipedia.org/wiki/Chicago",
+                "city": "Sheree"
+            }
+        }, {
+            "geometry": { "type": "Point", "coordinates": [-74.00, 40.71]},
+            "properties": {
+                "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/NYC_Montage_2011.jpg/275px-NYC_Montage_2011.jpg",
+                "url": "http://en.wikipedia.org/wiki/New_York_City",
+                "city": "Brac"
+            }
+        }];
+
+        // Create map
+        var map = mapbox.map('map');
+        map.addLayer(mapbox.layer().id('rajuniit.map-8nfypq3k'));
+
+        // Create and add marker layer
+        var markerLayer = mapbox.markers.layer().features(features);
+        var interaction = mapbox.markers.interaction(markerLayer);
+        map.addLayer(markerLayer);
+
+        // Set a custom formatter for tooltips
+        // Provide a function that returns html to be used in tooltip
+        interaction.formatter(function(feature) {
+            var o = '<a target="_blank" href="' + feature.properties.url + '">' +
+                    '<img src="' + feature.properties.image + '">' +
+                    '<h2>' + feature.properties.city + '</h2>' +
+                    '</a>';
+
+            return o;
+        });
+
+        // Set iniital center and zoom
+        map.centerzoom({
+            lat: 45.908,
+            lon: -78.525
+        }, 5);
+
+        // Attribute map
+        map.ui.attribution.add()
+                .content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');*/
+    </script>
+
+{% endblock %}

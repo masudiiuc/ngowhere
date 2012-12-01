@@ -1,0 +1,210 @@
+{% extends 'ProjectBundleAdminBundle::layout_local.html.twig' %}
+
+{% block content %}
+    <div class="span12" >
+
+        <h2>NGO's Tracker</h2>
+
+        <div class="well span7" style="margin-left:0px;" id="middle-container">
+            {#<img src="/img/bangladesh_map.jpg"/>#}
+            <iframe width='550' height='500' frameBorder='0' src='http://a.tiles.mapbox.com/v3/masudiiuc.map-uqjczjs5.html#7/24.3320818600736/90.95581054687499'></iframe>
+        </div><!-- midlle container -->
+
+        <div class="span4" style="width: 330px;" id="right-container">
+            <div class="well">
+                <h4 class="text-info">Search</h4>
+
+                <form>
+                    <fieldset>
+                        <div class="control-group">
+
+                            <div class="controls">
+                                <select class="input-large select2">
+                                    <option>Select NGO</option>
+                                    <option>Shiree</option>
+                                    <option>Alokito</option>
+                                    <option>Asha</option>
+                                    <option>Shorjer Hasi</option>
+                                    <option>Alokito Muk</option>
+                                    <option>Unnoyon</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="control-group">
+
+                            <!-- Select Basic -->
+                            <div class="controls">
+                                <select class="input-large select2">
+                                    <option>Select Division</option>
+                                    <option>Dhaka</option>
+                                    <option>Chittagong</option>
+                                    <option>Rajshahi</option>
+                                    <option>Barishal</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="control-group">
+
+                            <!-- Select Basic -->
+                            <div class="controls">
+                                <select class="input-large select2">
+                                    <option>Select District</option>
+                                    <option>Gazipur</option>
+                                    <option>Jaidevpur</option>
+                                    <option>Norshingdi</option>
+                                    <option>Bhoirob</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="control-group">
+
+                            <!-- Select Basic -->
+                            <div class="controls">
+                                <select class="input-large select2">
+                                    <option>Select Upozila</option>
+                                    <option>Hajipara</option>
+                                    <option>Goforgao</option>
+                                    <option>Ghoramara</option>
+                                    <option>Talibazar</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="control-group">
+
+                            <!-- Select Basic -->
+                            <div class="controls">
+                                <select class="input-large select2">
+                                    <option>Select Union Porishod</option>
+                                    <option>Union 1</option>
+                                    <option>Union 2</option>
+                                    <option>Union 4</option>
+                                    <option>Union 5</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Button -->
+                            <div class="controls">
+                                <button class="btn btn-success"><i class="icon-search"></i>&nbsp;Search</button>
+                                <button class="btn btn-danger">Clear</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="span11 well" style="margin-left:0px ; width: 890px;" id="bottom-container">
+            <h4> List of Projects </h4>
+            <table class="table table-striped table-condensed">
+                <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>NGO Name</th>
+                    <th>Date Started</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Food and Sanitiation Programm</td>
+                        <td>Shiree</td>
+                        <td>12 Dec, 2012</td>
+                        <td>
+                            Gazipur, Dhaka, Bangaldesh
+                        </td>
+                        <td><span class="label label-success">Running</td>
+                    </tr>
+
+                    <tr>
+                        <td>Food and Sanitiation Programm</td>
+                        <td>Shiree</td>
+                        <td>12 Dec, 2012</td>
+                        <td>
+                            Gazipur, Dhaka, Bangaldesh
+                        </td>
+                        <td><span class="label label-success">Running</td>
+                    </tr>
+
+                    <tr>
+                        <td>Food and Sanitiation Programm</td>
+                        <td>Shiree</td>
+                        <td>12 Dec, 2012</td>
+                        <td>
+                            Gazipur, Dhaka, Bangaldesh
+                        </td>
+                        <td><span class="label label-warning">Paused</td>
+                    </tr>
+                    <tr>
+                        <td>Food and Sanitiation Programm</td>
+                        <td>Shiree</td>
+                        <td>12 Dec, 2012</td>
+                        <td>
+                            Gazipur, Dhaka, Bangaldesh
+                        </td>
+                        <td><span class="label label-success">Running</td>
+                    </tr>
+
+                    <tr>
+                        <td>Food and Sanitiation Programm</td>
+                        <td>Shiree</td>
+                        <td>12 Dec, 2012</td>
+                        <td>
+                            Gazipur, Dhaka, Bangaldesh
+                        </td>
+                        <td><span class="label label-success">Running</td>
+                    </tr>
+
+                    <tr>
+                        <td>Food and Sanitiation Programm</td>
+                        <td>Shiree</td>
+                        <td>12 Dec, 2012</td>
+                        <td>
+                            Gazipur, Dhaka, Bangaldesh
+                        </td>
+                        <td><span class="label label-success">Running</td>
+                    </tr>
+
+                    <tr>
+                        <td>Food and Sanitiation Programm</td>
+                        <td>Shiree</td>
+                        <td>12 Dec, 2012</td>
+                        <td>
+                            Gazipur, Dhaka, Bangaldesh
+                        </td>
+                        <td><span class="label label-warning">Paused</td>
+                    </tr>
+                    <tr>
+                        <td>Food and Sanitiation Programm</td>
+                        <td>Shiree</td>
+                        <td>12 Dec, 2012</td>
+                        <td>
+                            Gazipur, Dhaka, Bangaldesh
+                        </td>
+                        <td><span class="label label-success">Running</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(".select2").select2();
+    </script>
+{% endblock %}

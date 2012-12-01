@@ -1,0 +1,15 @@
+project_core_home:
+    pattern:  /
+    defaults: { _controller: ProjectBundleCoreBundle:Default:index }
+
+project_core_login:
+    pattern:  /login
+    defaults: { _controller: ProjectBundleCoreBundle:Auth:login }
+
+project_core_logout:
+    pattern:  /logout
+    defaults: { _controller: ProjectBundleCoreBundle:Auth:logout }
+
+project_home_get_location:
+    pattern:  /search/{location}/{key}
+    defaults: { _controller: ProjectBundleCoreBundle:Search:getLocation }

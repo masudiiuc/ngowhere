@@ -1,0 +1,83 @@
+{% extends 'ProjectBundleAdminBundle::layout.html.twig' %}
+
+{% block content %}
+<div class="row">
+    &nbsp;
+</div>
+
+<div class="span12">
+    <div class="row well span8" style="margin-left: 150px;">
+        <form class="form-horizontal" method="POST" name="frmSignupNGO">
+            <fieldset>
+                <div id="legend" class="">
+                    <legend class="">NGO Signup </legend>
+                </div>
+                <div class="control-group">
+
+                    <!-- Text input-->
+                    <label class="control-label" for="input01">NGO Title</label>
+                    <div class="controls">
+                        <input type="text" placeholder="placeholder" name="ngo_name" class="input-xlarge">
+                    </div>
+                </div>
+
+
+
+                <div class="control-group">
+
+                    <!-- Textarea -->
+                    <label class="control-label">NGO Summary</label>
+                    <div class="controls">
+                        <div class="textarea">
+                            <textarea type="" class="spna4" class="ngo_details"> </textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+
+                    <!-- Select Multiple -->
+                    <label class="control-label">Area of Interest</label>
+                    <div class="controls">
+                        <select class="input-xlarge" multiple="multiple" name="ngo_categories">
+                            <option>Sanitation</option>
+                            <option>Water</option>
+                            <option>Food</option>
+                            <option>Birth Control</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group">
+
+                    <!-- Text input-->
+                    <label class="control-label" for="input01">Login Name</label>
+                    <div class="controls">
+                        <input type="text" placeholder="placeholder" class="input-large" name="ngo_username">
+
+                    </div>
+                </div>
+
+                <div class="control-group">
+
+                    <!-- Text input-->
+                    <label class="control-label" for="input01">Password</label>
+                    <div class="controls">
+                        <input type="password" placeholder="placeholder" class="input-large" name="ngo_password">
+
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Signup Now</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
