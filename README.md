@@ -1,36 +1,31 @@
-Symfony 2.0 Project Bootstrapping
-=================================
+NGO Where!!!
+--------------
 
-1. Install composer:
+The Development Challenge:
+There are many NGOs working on sanitation related projects but there is no means of quickly ascertaining who is doing what & where.
 
-    curl -s http://getcomposer.org/installer | php
+The Development Solution:
+The NGO Affairs Bureau collates information on which agency is doing what & where and sends this to line agencies.
 
-2. Install the vendor libraries by running composer:
+The Problem with the Solution:
+The information on who is doing what & where is not made public nor is it made available to local governments.
 
-    php composer.phar --verbose install
+IT Challenge:
+To create an open data platform that maps approved NGO activities  for line departments & local governments by name, activity.
 
-3. Setup a VirtualHost with the following configuration (modify as needed):
+Support:
+NGOs (http://mapbox.com/)
 
-    <VirtualHost *:80>
-        
-        ServerName project.symfony.local
-        DocumentRoot "/Users/masud/Sites/personal/SymfonyBootstrap/web"
-        
-        <Directory "/Users/masud/Sites/personal/SymfonyBootstrap/web">
-             Options Indexes FollowSymLinks MultiViews
-             AllowOverride All
-             Allow from All
-        </Directory>
-        
-    </VirtualHost>
+Features:
+----------
 
-4. Create a copy of app/config/parameter.yml.dist to app/config/parameter.yml
+1. Automation of NGO Collection process
+2. Automation of Local Government action to NGO
+3. NGO activity tracking using SMS
+4. NGO Activity tracking using Mobile Phone APP
+5. MAP Based NGO tracking using MAPBox API
+6. Search NGO and NGO based activity 
 
-5. Update all the required configs.
-
-6. Run the following commands:
-
-    php app/console doctrine:database:create
-    chmod -R 0777 app/cache
-
-6. Enjoy!
+Work Summary
+------------
+We have created a Prototype of the whole system including Web section and Mobile section. We have planned the SMS Section but not able to include it in the prototype due to SMS gateway was not available for Receiver section.
